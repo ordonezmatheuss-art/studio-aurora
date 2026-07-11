@@ -68,7 +68,7 @@ export default function IntroBanner() {
   }, [reduce]);
 
   return (
-    <section className="relative flex min-h-[62svh] w-full items-center justify-center overflow-hidden md:h-[100svh]">
+    <section className="relative flex min-h-[72svh] w-full items-start justify-center overflow-hidden pt-24 md:h-[100svh] md:items-center md:pt-0">
       <video
         ref={videoRef}
         className="h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover"

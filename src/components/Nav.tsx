@@ -59,10 +59,11 @@ export default function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
+        style={{ paddingTop: "env(safe-area-inset-top)" }}
         className={`transition-all duration-500 ${
           scrolled
-            ? "bg-void/55 backdrop-blur-xl border-b border-white/10"
-            : "bg-void/20 backdrop-blur-md"
+            ? "bg-void/90 backdrop-blur-xl border-b border-white/10"
+            : "bg-void/80 backdrop-blur-xl"
         }`}
       >
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10">
