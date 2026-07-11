@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+/* ============================================================
+   STUDIO AURORA — Design tokens
+   DNA: cinematográfico noturno, gradiente mesh navy→roxo→índigo→teal.
+   "O designer dirige. A IA acelera."
+   ============================================================ */
+
+@theme {
+  /* Cores da marca */
+  --color-void: #08091a; /* fundo dark principal */
+  --color-abyss: #050610; /* fundo mais profundo */
+  --color-card: #0f1030; /* cards dark */
+  --color-navy: #0d1654; /* gradiente — início */
+  --color-indigo: #4828a0; /* gradiente — meio */
+  --color-roxo: #8b2ec8; /* acento roxo / magenta */
+  --color-teal: #1b9bc0; /* acento teal */
+  --color-mist: #aeb4e0; /* texto secundário azulado */
+  --color-light: #f0f2ff; /* claro */
+
+  /* Tipografia */
+  --font-display: var(--font-display), "Fredoka", system-ui, sans-serif;
+  --font-body: var(--font-body), "Montserrat", system-ui, sans-serif;
+
+  /* Easing cinematográfico */
+  --ease-aurora: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ângulo dos gradientes da marca — animado pelo scroll (ver GradientScroll) */
+@property --aurora-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 110deg;
+}
+:root {
+  --aurora-angle: 110deg;
+}
+
+/* ---------- Base ---------- */
+* {
+  border-color: color-mix(in oklab, var(--color-light) 8%, transparent);
+}
+
+/* Acessibilidade — foco visível por teclado */
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Acessibilidade — respeita quem pede menos movimento.
+   Neutraliza animações CSS infinitas (animate-ping/pulse/etc.) e
+   transições longas. As animações via Motion já checam useReducedMotion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: auto; /* Lenis cuida do smooth scroll */
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-void); /* fallback atrás do canvas da aurora */
+}
+
+body {
+  background-color: transparent; /* aurora WebGL fixa aparece atrás */
+  color: white;
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* ---------- Utilitários de marca ---------- */
+
+/* Texto com o gradiente assinatura da aurora */
+.text-aurora {
+  background: linear-gradient(
+    var(--aurora-angle, 100deg),
+    var(--color-navy) 0%,
+    var(--color-indigo) 28%,
+    var(--color-roxo) 55%,
+    var(--color-teal) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Linha/seta gradiente */
+.bg-aurora {
+  background: linear-gradient(
+    var(--aurora-angle, 100deg),
+    var(--color-navy) 0%,
+    var(--color-indigo) 28%,
+    var(--color-roxo) 55%,
+    var(--color-teal) 100%
+  );
+}
+
+/* Borda gradiente (usar em cards/pills) */
+.border-aurora {
+  position: relative;
+  background-clip: padding-box;
+}
+.border-aurora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    var(--aurora-angle, 120deg),
+    var(--color-roxo),
+    var(--color-teal),
+    var(--color-indigo)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Mesh de aurora ao fundo (blobs desfocados) */
+.aurora-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora-mesh::before,
+.aurora-mesh::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+.aurora-mesh::before {
+  width: 60vw;
+  height: 60vw;
+  left: -10vw;
+  top: -20vw;
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--color-roxo),
+    transparent 60%
+  );
+  animation: drift1 22s var(--ease-aurora) infinite alternate;
+}
+.aurora-mesh::after {
+  width: 55vw;
+  height: 55vw;
+  right: -8vw;
+  top: -5vw;
+  background: radial-gradient(
+    circle at 70% 40%,
+    var(--color-teal),
+    transparent 60%
+  );
+  animation: drift2 26s var(--ease-aurora) infinite alternate;
+}
+
+@keyframes drift1 {
+  to {
+    transform: translate3d(8vw, 10vw, 0) scale(1.15);
+  }
+}
+@keyframes drift2 {
+  to {
+    transform: translate3d(-6vw, 8vw, 0) scale(1.1);
+  }
+}
+
+/* Grão/ruído sutil para textura cinematográfica */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Botão com gradiente da marca — no hover o gradiente GIRA + brilho de aurora + lift */
+.btn-aurora {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  color: #fff;
+  background: linear-gradient(
+    var(--aurora-angle, 100deg),
+    var(--color-indigo),
+    var(--color-roxo) 50%,
+    var(--color-teal)
+  );
+  transition:
+    transform 0.45s var(--ease-aurora),
+    box-shadow 0.45s var(--ease-aurora);
+}
+.btn-aurora:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 44px -10px color-mix(in oklab, var(--color-roxo) 80%, transparent),
+    0 6px 24px -8px color-mix(in oklab, var(--color-teal) 70%, transparent);
+  animation: btn-aurora-spin 3s linear infinite;
+}
+@keyframes btn-aurora-spin {
+  from {
+    --aurora-angle: 0deg;
+  }
+  to {
+    --aurora-angle: 360deg;
+  }
+}
+.btn-aurora .arrow {
+  transition: transform 0.4s var(--ease-aurora);
+}
+.btn-aurora:hover .arrow {
+  transform: translateX(5px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-aurora:hover {
+    animation: none;
+    transform: translateY(-3px);
+  }
+}
+
+/* Label caixa-alta (DNA: labels sempre em caps) */
+.label {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* #6 — Marquee infinito de segmentos (duas faixas em sentidos opostos) */
+@keyframes marquee-left {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate-marquee-left {
+  animation: marquee-left 34s linear infinite;
+}
+.animate-marquee-right {
+  animation: marquee-right 34s linear infinite;
+}
+/* pausa ao passar o mouse na faixa */
+.marquee-band:hover .animate-marquee-left,
+.marquee-band:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
+  }
+}
+
+/* Esconde scrollbar em faixas horizontais */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-mesh::before,
+  .aurora-mesh::after {
+    animation: none;
+  }
+}
