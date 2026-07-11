@@ -68,10 +68,10 @@ export default function IntroBanner() {
   }, [reduce]);
 
   return (
-    <section className="relative flex h-[100svh] w-full items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[62svh] w-full items-center justify-center overflow-hidden md:h-[100svh]">
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover"
         src="/brand/logo-reveal.mp4"
         poster="/brand/logo-reveal-poster.jpg"
         autoPlay={!reduce}

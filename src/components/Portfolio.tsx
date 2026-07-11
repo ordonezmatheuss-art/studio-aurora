@@ -188,8 +188,11 @@ function CaseRow({
     return () => io.disconnect();
   }, []);
 
-  // arrastar para rolar — pointer capture: as imagens seguem o mouse
+  // arrastar para rolar — SÓ no mouse. No touch, a rolagem nativa do
+  // navegador (overflow-x) cuida do horizontal; sequestrar o ponteiro
+  // aqui quebrava o deslize no celular.
   const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
     const el = scrollerRef.current;
     if (!el || el.scrollWidth - el.clientWidth <= 8) return;
     drag.current = {
@@ -287,7 +290,9 @@ function CaseRow({
           }`}
           style={{
             scrollSnapType: overflow ? "x proximity" : "none",
-            touchAction: "pan-y",
+            // permite deslize horizontal (carrossel) E vertical (página) no toque
+            touchAction: "pan-x pan-y",
+            WebkitOverflowScrolling: "touch",
           }}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
