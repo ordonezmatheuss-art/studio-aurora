@@ -12,7 +12,7 @@ const nav = {
   ],
   Social: [
     { label: "Instagram", href: "https://instagram.com/studioauroraia" },
-    { label: "WhatsApp", href: "https://wa.me/5519994367137" },
+    { label: "WhatsApp", href: "https://wa.me/5519994367137?text=Ol%C3%A1%2C%20gostaria%20de%20come%C3%A7ar%20um%20projeto%20novo." },
     { label: "E-mail", href: "mailto:studioauroramkt@gmail.com" },
   ],
 };

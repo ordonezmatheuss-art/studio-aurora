@@ -23,7 +23,7 @@ export default function Contato() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="https://wa.me/5519994367137?text=Oi%2C%20vim%20pelo%20site%20da%20STUDIO%20Aurora"
+              href="https://wa.me/5519994367137?text=Ol%C3%A1%2C%20gostaria%20de%20come%C3%A7ar%20um%20projeto%20novo."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-aurora px-8 py-4 font-semibold"
