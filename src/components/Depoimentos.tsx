@@ -2,10 +2,6 @@
 
 import { Reveal, Stagger, StaggerItem } from "./primitives";
 
-/**
- * Depoimentos — TEXTOS PLACEHOLDER no tom da marca.
- * Substitua pelas falas reais dos parceiros quando tiver.
- */
 const depoimentos = [
   {
     quote:
@@ -59,12 +55,6 @@ export default function Depoimentos() {
         ))}
       </Stagger>
 
-      <Reveal delay={0.1}>
-        <p className="mt-8 text-sm text-white/40">
-          * Depoimentos ilustrativos — serão substituídos pelas falas reais dos
-          parceiros.
-        </p>
-      </Reveal>
     </section>
   );
 }

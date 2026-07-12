@@ -23,7 +23,7 @@ export default function Contato() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="https://wa.me/?text=Oi%2C%20vim%20pelo%20site%20da%20STUDIO%20Aurora"
+              href="https://wa.me/5519994367137?text=Oi%2C%20vim%20pelo%20site%20da%20STUDIO%20Aurora"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-aurora px-8 py-4 font-semibold"
@@ -31,10 +31,10 @@ export default function Contato() {
               Falar no WhatsApp <span className="arrow">→</span>
             </a>
             <a
-              href="mailto:contato@studioaurora.ia"
+              href="mailto:studioauroramkt@gmail.com"
               className="rounded-full border border-white/15 px-8 py-4 font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
             >
-              contato@studioaurora.ia
+              studioauroramkt@gmail.com
             </a>
           </div>
         </Reveal>

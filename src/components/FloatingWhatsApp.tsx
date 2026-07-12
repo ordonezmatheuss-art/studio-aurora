@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 const WHATSAPP_URL =
-  "https://wa.me/?text=Oi%2C%20vim%20pelo%20site%20da%20STUDIO%20Aurora";
+  "https://wa.me/5519994367137?text=Oi%2C%20vim%20pelo%20site%20da%20STUDIO%20Aurora";
 
 export default function FloatingWhatsApp() {
   const [show, setShow] = useState(false);

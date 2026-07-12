@@ -12,8 +12,8 @@ const nav = {
   ],
   Social: [
     { label: "Instagram", href: "https://instagram.com/studioauroraia" },
-    { label: "WhatsApp", href: "https://wa.me/" },
-    { label: "E-mail", href: "mailto:contato@studioaurora.ia" },
+    { label: "WhatsApp", href: "https://wa.me/5519994367137" },
+    { label: "E-mail", href: "mailto:studioauroramkt@gmail.com" },
   ],
 };
 
