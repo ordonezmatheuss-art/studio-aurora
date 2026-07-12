@@ -37,7 +37,7 @@ const body = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const SITE_URL = "https://studioaurora.ia";
+const SITE_URL = "https://studioaurora.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
