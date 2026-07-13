@@ -11,6 +11,7 @@ import Honestidade from "@/components/Honestidade";
 import Numeros from "@/components/Numeros";
 import Sobre from "@/components/Sobre";
 import Processo from "@/components/Processo";
+import Servicos from "@/components/Servicos";
 import Portfolio from "@/components/Portfolio";
 import Depoimentos from "@/components/Depoimentos";
 import Contato from "@/components/Contato";
@@ -33,6 +34,7 @@ export default function Home() {
         <Numeros />
         <Sobre />
         <Processo />
+        <Servicos />
         <Portfolio />
         <Depoimentos />
         <Marquee />

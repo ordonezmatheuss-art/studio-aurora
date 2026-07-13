@@ -7,6 +7,7 @@ const nav = {
   Navegação: [
     { label: "Manifesto", href: "#manifesto" },
     { label: "Método", href: "#metodo" },
+    { label: "Serviços", href: "#servicos" },
     { label: "Trabalhos", href: "#trabalhos" },
     { label: "Contato", href: "#contato" },
   ],
