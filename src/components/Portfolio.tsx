@@ -415,7 +415,7 @@ function CaseModal({ data, onClose }: { data: Case; onClose: () => void }) {
           ))}
         </div>
 
-        <div className="mt-9 grid gap-8 md:grid-cols-3">
+        <div className="mt-9 grid gap-8 md:grid-cols-2">
           <div>
             <p className="label mb-2 text-white/40">O desafio</p>
             <p className="text-[15px] leading-relaxed text-mist">{data.brief}</p>
@@ -424,13 +424,6 @@ function CaseModal({ data, onClose }: { data: Case; onClose: () => void }) {
             <p className="label mb-2 text-white/40">O que fizemos</p>
             <p className="text-[15px] leading-relaxed text-mist">
               {data.solution}
-            </p>
-          </div>
-          <div>
-            <p className="label mb-2 text-white/40">Resultados</p>
-            <p className="text-[15px] leading-relaxed text-mist">
-              Espaço para métricas reais (alcance, engajamento, matrículas,
-              vendas). <span className="text-white/45">— a preencher.</span>
             </p>
           </div>
         </div>

@@ -10,11 +10,13 @@ const linha1 = [
   "Social Media",
   "Motion Design",
   "Direção de Arte",
+  "Web Design",
   "Campanhas",
   "Branding",
 ];
 const linha2 = [
   "Key Visual",
+  "UI/UX",
   "Embalagem",
   "Conteúdo",
   "Ensaios com IA",
