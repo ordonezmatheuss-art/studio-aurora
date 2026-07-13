@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useInView, useReducedMotion } from "motion/rea
 import { useLenis } from "lenis/react";
 import { cases, type Case, type Media } from "@/lib/cases";
 import { shimmerPlaceholder } from "@/lib/shimmer";
+import { noWidow } from "@/lib/text";
 import { Reveal, DecodeText } from "./primitives";
 
 function ringClass(accent: Case["accent"]) {
@@ -241,7 +242,7 @@ function CaseRow({
               <span className="label text-roxo">{data.client}</span>
             </div>
             <h3 className="mt-5 max-w-xl font-display text-[clamp(1.6rem,3vw,2.8rem)] font-medium leading-[1.06] text-white">
-              {data.title}
+              {noWidow(data.title)}
             </h3>
             <div className="mt-6 flex flex-wrap gap-2">
               {data.tags.map((t) => (
@@ -259,13 +260,13 @@ function CaseRow({
             <div>
               <p className="label mb-2 text-white/40">O desafio</p>
               <p className="text-[15px] leading-relaxed text-mist">
-                {data.brief}
+                {noWidow(data.brief)}
               </p>
             </div>
             <div>
               <p className="label mb-2 text-white/40">O que fizemos</p>
               <p className="text-[15px] leading-relaxed text-mist">
-                {data.solution}
+                {noWidow(data.solution)}
               </p>
             </div>
             <button
@@ -402,7 +403,7 @@ function CaseModal({ data, onClose }: { data: Case; onClose: () => void }) {
 
         <span className="label text-roxo">{data.client}</span>
         <h3 className="mt-4 max-w-3xl font-display text-[clamp(1.8rem,4vw,3rem)] font-medium leading-[1.05] text-white">
-          {data.title}
+          {noWidow(data.title)}
         </h3>
         <div className="mt-5 flex flex-wrap gap-2">
           {data.tags.map((t) => (
@@ -418,12 +419,12 @@ function CaseModal({ data, onClose }: { data: Case; onClose: () => void }) {
         <div className="mt-9 grid gap-8 md:grid-cols-2">
           <div>
             <p className="label mb-2 text-white/40">O desafio</p>
-            <p className="text-[15px] leading-relaxed text-mist">{data.brief}</p>
+            <p className="text-[15px] leading-relaxed text-mist">{noWidow(data.brief)}</p>
           </div>
           <div>
             <p className="label mb-2 text-white/40">O que fizemos</p>
             <p className="text-[15px] leading-relaxed text-mist">
-              {data.solution}
+              {noWidow(data.solution)}
             </p>
           </div>
         </div>

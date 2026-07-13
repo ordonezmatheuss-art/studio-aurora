@@ -1,5 +1,6 @@
 "use client";
 
+import { noWidow } from "@/lib/text";
 import { Reveal, Stagger, StaggerItem } from "./primitives";
 
 const depoimentos = [
@@ -45,7 +46,7 @@ export default function Depoimentos() {
           >
             <p className="text-lg leading-relaxed text-white/90">
               <span className="mr-1 font-display text-2xl text-roxo">“</span>
-              {d.quote}
+              {noWidow(d.quote)}
             </p>
             <div className="mt-8 border-t border-white/8 pt-5">
               <span className="block font-medium text-white">{d.name}</span>

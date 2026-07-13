@@ -1,5 +1,6 @@
 "use client";
 
+import { noWidow } from "@/lib/text";
 import { Reveal, Stagger, StaggerItem } from "./primitives";
 
 /**
@@ -67,7 +68,7 @@ export default function Servicos() {
               {s.titulo}
             </h3>
             <p className="mt-4 text-[15px] leading-relaxed text-mist">
-              {s.desc}
+              {noWidow(s.desc)}
             </p>
           </StaggerItem>
         ))}

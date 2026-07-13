@@ -86,6 +86,26 @@ body {
   font-family: var(--font-body);
 }
 
+/* Diagramação — sem palavras órfãs/viúvas em nenhum texto do site.
+   `balance` equilibra as linhas de títulos; `pretty` impede que a última
+   linha de um parágrafo termine com uma única palavra solta. Responsivo:
+   se ajusta a qualquer largura de tela. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.label {
+  text-wrap: balance;
+}
+p,
+li,
+blockquote,
+figcaption {
+  text-wrap: pretty;
+}
+
 /* Lenis */
 html.lenis,
 html.lenis body {
